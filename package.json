@@ -1,0 +1,39 @@
+{
+  "name": "sigovenoi_mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol for Sigovenoi",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && chmod 755 dist/index.js",
+    "format": "prettier --write .",
+    "lint": "eslint \"**/*.{js,ts,tsx}\" --fix"
+  },
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp"
+  ],
+  "author": "Fred Rocher",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "sigovenoi-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.1",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.28.0"
+  }
+}
