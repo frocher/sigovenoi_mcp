@@ -17,8 +17,12 @@ const argv = yargs(hideBin(process.argv))
   .parseSync();
 
 // Get API URL from arguments or environment variables
-const API_URL = argv.url || process.env.API_URL;
+let API_URL = argv.url || process.env.API_URL;
 const DEFAULT_MINIMUM_TOKENS = 5000;
+
+if (!API_URL) {
+  API_URL = "https://www.sigovenoi.com/api/v1/";
+}
 
 // Create server instance
 const server = new McpServer({
@@ -50,34 +54,29 @@ async function makeAPIRequest<T>(url: string): Promise<T | null> {
 }
 
 // Register the tools
-server.tool(
-  "get-themes",
-  "Required first step: retrieve all themes.",
-  {},
-  async () => {
-    const data = await makeAPIRequest<any>(API_URL + "/themes");
+server.tool("get-themes", "Required first step: retrieve all themes.", {}, async () => {
+  const data = await makeAPIRequest<any>(API_URL + "/themes");
 
-    if (!data) {
-      return {
-        content: [
-          {
-            type: "text",
-            text: "Failed to retrieve themes data",
-          },
-        ],
-      };
-    }
-
+  if (!data) {
     return {
       content: [
         {
           type: "text",
-          text: JSON.stringify(data, null, 2),
+          text: "Failed to retrieve themes data",
         },
       ],
     };
-  },
-);
+  }
+
+  return {
+    content: [
+      {
+        type: "text",
+        text: JSON.stringify(data, null, 2),
+      },
+    ],
+  };
+});
 
 server.tool(
   "search-theme-topics",
@@ -125,7 +124,7 @@ server.tool(
         },
       ],
     };
-  },
+  }
 );
 
 // Start the server
