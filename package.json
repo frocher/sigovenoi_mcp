@@ -1,7 +1,10 @@
 {
-  "name": "sigovenoi_mcp",
+  "name": "@acmada/sigovenoi_mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol for Sigovenoi",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && chmod 755 dist/index.js",
