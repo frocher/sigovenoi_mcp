@@ -13,22 +13,11 @@ A Model Context Protocol (MCP) server that provides access to coding rules and e
 
 - Node.js (v16 or higher)
 - npm or yarn
+- Cursor, Windsurf, Claude Desktop or another MCP Client
 
+## Getting started
 
-## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/sigovenoi_mcp.git
-cd sigovenoi_mcp
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-## Install in Cursor
+### Install in Cursor
 
 Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
@@ -45,11 +34,53 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 }
 ```
 
-## Configuration
+### Install in Windsurf
+
+TODO
+
+### Install in VSCode
+
+TODO
+
+### Install in Claude Desktop
+
+TODO
+
+### Available Tools
+
+#### get-themes
+Retrieves all available themes.
+
+#### search-theme-topics
+Search topics for a given theme. Parameters:
+- `themeCode`: Theme code to search for topics
+- `query`: (Optional) Search query
+- `tokens`: (Optional) Maximum number of tokens to return
+
+
+## Development
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/sigovenoi_mcp.git
+cd sigovenoi_mcp
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Build
+```bash
+npm run build
+```
+
+### Configuration
 
 Create a `.env` file in the root directory with the following variables:
 ```env
-API_URL=http://localhost:3000/api/v1
+API_URL=https://www.sigovenoi.com/api/v1
 ```
 
 Or provide the URL via command line:
@@ -57,40 +88,24 @@ Or provide the URL via command line:
 node dist/index.js --url http://your-api-url
 ```
 
-## Usage
-
-1. Build the project:
-```bash
-npm run build
+### Local configuration example
+```json
+{
+  "mcpServers": {
+    "sigovenoi": {
+      "command": "npx",
+      "args": ["tsx", "/path/to/folder/sigovenoi_mcp/src/index.ts"]
+    }
+  }
+}
 ```
 
-2. Start the server:
+### Testing with MCP Inspector
+
 ```bash
-node dist/index.js
+npx -y @modelcontextprotocol/inspector npx @upstash/context7-mcp@latest
 ```
 
-## Available Tools
-
-### get-themes
-Retrieves all available themes.
-
-### search-theme-topics
-Search topics for a given theme. Parameters:
-- `themeCode`: Theme code to search for topics
-- `query`: (Optional) Search query
-- `tokens`: (Optional) Maximum number of tokens to return
-
-## Development
-
-1. Install development dependencies:
-```bash
-npm install --save-dev typescript @types/node
-```
-
-2. Start the development server:
-```bash
-npm run dev
-```
 
 ## License
 
