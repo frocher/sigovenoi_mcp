@@ -14,6 +14,7 @@ A Model Context Protocol (MCP) server that provides access to coding rules and e
 - Node.js (v16 or higher)
 - npm or yarn
 
+
 ## Installation
 
 1. Clone the repository:
@@ -25,6 +26,23 @@ cd sigovenoi_mcp
 2. Install dependencies:
 ```bash
 npm install
+```
+
+## Install in Cursor
+
+Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
+
+Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
+
+```json
+{
+  "mcpServers": {
+    "sigovenoi": {
+      "command": "npx",
+      "args": ["-y", "@frocher/sigovenoi-mcp@latest"]
+    }
+  }
+}
 ```
 
 ## Configuration
