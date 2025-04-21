@@ -1,6 +1,6 @@
 {
   "name": "@acmada/sigovenoi_mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Model Context Protocol for Sigovenoi",
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "sigovenoi-mcp": "dist/index.js"
+    "sigovenoi_mcp": "dist/index.js"
   },
   "files": [
     "dist"
