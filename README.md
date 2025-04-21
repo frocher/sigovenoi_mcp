@@ -28,7 +28,7 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "sigovenoi": {
       "command": "npx",
-      "args": ["-y", "@frocher/sigovenoi-mcp@latest"]
+      "args": ["-y", "@acmada/sigovenoi_mcp@latest"]
     }
   }
 }
@@ -44,7 +44,18 @@ TODO
 
 ### Install in Claude Desktop
 
-TODO
+Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
+
+```json
+{
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": ["-y", "@acmada/sigovenoi_mcp@latest"]
+    }
+  }
+}
+```
 
 ### Available Tools
 
